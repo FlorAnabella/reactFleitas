@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-const cartWidget = () => {
+const CartWidget = () => {
     return (
         <>
-        <Button variant="dark">Dark</Button>
+         <Button variant="Warning"><i class="bi bi-cart4"></i> Comprar</Button>{' '}
         </>
     )
 };
 
-export default cartWidget;
+export default CartWidget;

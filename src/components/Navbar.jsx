@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import cartWidget from "./CartWidget";
+import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
@@ -30,7 +30,7 @@ function NavBar() {
                   Posibles problemas
                 </NavDropdown.Item>
               </NavDropdown>
-              <cartWidget />
+              <CartWidget />
             </Nav>
             <Form className="d-flex">
               <Form.Control
