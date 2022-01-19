@@ -9,7 +9,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <Button
           variant="outline-info"
           onClick={() => {
-            if (count > 0) {
+            if (count > initial) {
               setCount(count - 1);
             }
           }}

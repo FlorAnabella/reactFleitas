@@ -1,22 +1,17 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 
-export default class ItemListContainer extends React.Component {
-constructor (props) {
-    super(props);
-    this.state = {
-        greeting: props.greeting, 
-    };
-}
+const onAdd = (n)=>console.log(n)
 
-render (){
-    return (
+const ItemListContainer = ({greeting}) => {
+     return (
         <>
         <h2 class="bg-danger">
-            {this.state.greeting} 
+            {greeting} 
         </h2>
-        <ItemCount stock={5} initial={1} onAdd={(n)=>console.log(n)}/>
+        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
         </>
     )
-}
-}
+};
+
+export default ItemListContainer;
