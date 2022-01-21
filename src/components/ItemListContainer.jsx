@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
@@ -7,7 +7,9 @@ const onAdd = (n) => console.log(n);
 const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
 
-  queryItems(setItems)
+  useEffect(() => {
+    queryItems(setItems);
+  }, []);
   return (
     <>
       <h2 class="bg-danger">{greeting}</h2>
