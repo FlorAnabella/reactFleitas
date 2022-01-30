@@ -5,6 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+
 import CartWidget from "./CartWidget";
 
 function NavBar() {
@@ -12,7 +14,7 @@ function NavBar() {
     <>
       <Navbar bg="danger" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Pet Shop of Horrors</Navbar.Brand>
+          <Navbar.Brand><Link to={"/"}>Pet Shop of Horrors</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -20,9 +22,18 @@ function NavBar() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Inicio</Nav.Link>
-              <Nav.Link href="#action2">Ofertas semanales</Nav.Link>
-              <NavDropdown title="Tu compra" id="navbarScrollingDropdown">
+              <NavDropdown title="Categorías" id="navbarScrollingDropdown">
+                <NavDropdown.Item>
+                  <Link to={"/category/1"}>Acuáticos</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={"/category/2"}>Terrestres</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={"/category/3"}>Voladores</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="Información importante" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">
                   Condiciones de servicio
                 </NavDropdown.Item>

@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+import { getItem } from "../mocks";
 import ItemDetail from "./ItemDetail";
 
-const ItemDetailContainer = ({ greeting }) => {
+const ItemDetailContainer = () => {
   const [item, setItem] = useState([]);
+  const { id } = useParams();
+  const [itemId, setItemId] = useState(parseInt(id));
 
   useEffect(() => {
-    getItem(setItem);
+    setItemId(parseInt(id));
+  }, [id]);
+
+  useEffect(() => {
+    queryItem(setItem, itemId);
   }, []);
+
   return (
     <>
       <ItemDetail item={item} />
@@ -14,21 +24,11 @@ const ItemDetailContainer = ({ greeting }) => {
   );
 };
 
-function getItem(returnFunc) {
+function queryItem(returnFunc, itemId) {
   return new Promise(function (resolve) {
     setTimeout(resolve, 2000);
   }).then(() => {
-    returnFunc(
-      {
-        id: 1,
-        title: "Medusa",
-        description:
-        "Especie exótica capturada en la selva tropical del Amazonas. Cuidado! no quitarle la venda!",
-        price: "U$S4000",
-        pictureURL:
-        "https://i.pinimg.com/originals/24/62/11/246211f84293556598824f5316d20370.jpg",
-      }
-    );
+    returnFunc(getItem(itemId));
   });
 }
 

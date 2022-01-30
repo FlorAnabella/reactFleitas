@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.listImage {
+	object-fit: contain;
+	display: block;
+	height: auto;
+	max-height: 18rem;
+	max-width: 18rem;
+	width: auto;
+}
